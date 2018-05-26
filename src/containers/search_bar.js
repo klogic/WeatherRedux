@@ -9,16 +9,22 @@ export default class SearchBar extends Component{
     
     this.onInputChange = this.onInputChange.bind(this)
   }
-  
+
   onInputChange(event){
     this.setState({term : event.target.value})
   }
 
+  OnFromSubmit(event){
+    // prevent user for submit form.
+    event.preventDefault();
+  }
+
   render(){
     return (
-      <form className="input-group container">
+      <form className="input-group container" onSubmit={ this.OnFromSubmit }>
         <input 
         className="form-control" 
+        placeholder="get 5 days forecast of you cities"
         value = { this.state.term }
         onChange = { this.onInputChange }
         />
